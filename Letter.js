@@ -33,9 +33,9 @@ function LetterDisplay(u_char, char) {
 }
 
 
-var newLetterDisplay = new LetterDisplay("A", "A");
-newLetterDisplay.compare();
-newLetterDisplay.returnChar();
+// var newLetterDisplay = new LetterDisplay("A", "A");
+// newLetterDisplay.compare();
+// newLetterDisplay.returnChar();
 
 // console.log(" hello : " + char);
 
