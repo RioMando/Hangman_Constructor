@@ -1,7 +1,7 @@
 {
   "name": "hangman_constructor",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"Hangman game. Guess the world or phrase before you run out of attempts\"",
   "main": "hangman_const.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/RioMando/Hangman_Constructor.git"
   },
-  "author": "",
+  "author": "Aro",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RioMando/Hangman_Constructor/issues"
