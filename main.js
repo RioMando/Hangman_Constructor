@@ -1,7 +1,26 @@
 // Dependency for prompt npm package
-var prompt = require("prompt");
+// var prompt = require("prompt");
 
-var Word = require("./word");
+var Word = require("./word.js");
+
+var something = new Word("A", "s");
+
+console.log("Entered letter");
+console.log(something.typed + "\n");
+
+console.log("Hidden letter");
+console.log(something.conceal + "\n");
+
+something.addLetter("A", "s");
+something.addLetter.getLetter.compare();
+something.addLetter.returnChar();
+
+
+var tempLetter = something.thisWord;
+console.log(tempLetter);
+console.log("This is the letter to be used: ");
+console.log(something.thisWord);
+// console.log(JSON.stringify(something.thisWord));
 
 // Define an array with words or phrases to be guessed by the user
 // Display the info about to how to play
