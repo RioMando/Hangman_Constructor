@@ -2,17 +2,17 @@ var getLetter = "";
 
 var Letter = require("./letter.js");
 
-function Word(typed_l, hidden_l){
+function Word(typed_l, hidden_team){
 // var Word = function(typed_l, hidden_l){
 	this.thisWord = [];
 	this.typed = typed_l;
-	this.conceal = hidden_l;
+	this.concealArray = hidden_team;
 
 	this.addLetter = function(und_l, hid_l) {
 		var getLetter = new Letter(und_l, hid_l);
 		getLetter.returnChar();
 		var obj = {
-			user_char: getLetter.typed,
+			typed: getLetter.typed,
 			hidden_char: getLetter.under_char,
 			guessed: getLetter.guessed,
 			character: getLetter.character
@@ -20,7 +20,12 @@ function Word(typed_l, hidden_l){
  
 		this.thisWord.push(obj);
 	};
-};
+
+	this.array_Word = function(team) {
+		this.conceal_word = team.split("");
+		};
+		console.log(this.array_Word);
+}
 
 
 module.exports = Word;

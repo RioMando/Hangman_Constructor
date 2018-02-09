@@ -4,13 +4,16 @@ var Letter = function(t_char, u_char) {
 	this.under_char = u_char;
 	this.guessed = false;
 	this.character = "";
+
 	this.returnChar = () => {
 		if(this.under_char == this.typed){
 			this.character = this.typed;
 			this.guessed = true;
+			// return this.typed;
 		} else { 
 			this.character = "_";
 			this.guessed = false;
+			// return "_"
 		}		
 	}
 	
