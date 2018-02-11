@@ -3,36 +3,9 @@ var Word = require("./word.js");
 
 var newWord = new Word("a", "b");
 
-// console.log("Entered letter");
-// console.log(newWord.typed + "\n");
-
-// console.log("Hidden letter");
-// console.log(newWord.conceal + "\n");
-
-newWord.addLetter("a", "a");
-// console.log(JSON.stringify(newWord.thisWord[3))s;
-console.log(JSON.stringify(newWord.thisWord, null, 2) + "\n");
-console.log(newWord.thisWord[0].character);
-
-// console.log(JSON.stringify(newWord.thisWord));
-
-
-var start = function() {
-
-
-
-
-	// Define an array with words or phrases to be guessed by the user
-	var concealed_Word = function () {
-		var team = nfl_Teams[Math.floor(Math.random() * nfl_Teams.length)];
-		console.log(team);
-		var concela_Team = team.split("");
-		console.log(JSON.stringify(concela_Team));
-	};
-
-concealed_Word();
-}
-
+var count = 0;
+var typedLetter = "";
+var teamArray = [];
 var nfl_Teams = ["Arizona Cardinals", "Atlanta Falcons",
 				 "Baltimore Ravens", "Buffalo Bills",
 				 "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns",
@@ -47,10 +20,59 @@ var nfl_Teams = ["Arizona Cardinals", "Atlanta Falcons",
 				 "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Redskins"
 				 ];
 
+function start() {
+
+	count = 0;
+	var self = this;
+    
+    concealed_Word();
+	
+	
+}
+
+var concealed_Word = function() {
+	var team = nfl_Teams[Math.floor(Math.random() * nfl_Teams.length)];
+	teamArray = team.split("");
+	console.log(JSON.stringify(teamArray));
+	askLetter();
+};
+
+var askLetter = function() {
+
+    // if statement to assure that there are 10 opportunities to have a wrong answer
+	if (count < 10) {
+		inquirer.prompt([
+			{
+				type: "input",
+				name: "letter",
+				message: "Guess a letter!"
+			}
+		]).then(function(answer) {
+			typedLetter = answer;
+			console.log("You typed: " + JSON.stringify(answer.letter));
+
+			newWord.addLetter(answer.letter, "A");
+			// console.log(JSON.stringify(newWord.thisWord[3)])s;
+			var letterNew = JSON.stringify(newWord.thisWord, null, 2);
+			console.log(newWord.thisWord[0].character);
+
+		});
+	}
+}
 
 
-var newStart = new start();
-newStart.concealed_Word;
+
+
+
+// console.log(JSON.stringify(newWord.thisWord));
+
+// Define an array with words or phrases to be guessed by the user
+
+
+
+
+start();
+
 
 // Display the info about to how to play
 //Display underline spaces for every letter of the phrase to be guessed

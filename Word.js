@@ -24,7 +24,7 @@ function Word(typed_l, hidden_team){
 	this.array_Word = function(team) {
 		this.conceal_word = team.split("");
 		};
-		console.log(this.array_Word);
+		// console.log(this.array_Word);
 }
 
 
