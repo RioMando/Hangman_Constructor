@@ -55,8 +55,6 @@ function Main() {
 				message: "Guess a letter!"
 			}
 		]).then(function(answer) {
-			console.log("Escribiste: " + answer.letter);
-
 			console.log("letra en teamArray: " + teamArray[0]);
 			var letter = answer.letter;
 
@@ -67,6 +65,12 @@ function Main() {
 			// console.log(personArray.join(', '));
 			// console.log("letra nueva: " + letterNew.join(' _ '));
 			console.log(newWord.thisWord[0].character);
+			console.log("TA: " + teamArray);
+			teamArray.forEach(function(letArray){
+				newWord.addLetter(letter, letArray)
+				
+			});
+			console.log(newWord.thisWord);
 		}); // End .then
 	} // End askLetter
 } // End Main
