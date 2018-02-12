@@ -1,10 +1,11 @@
-var getLetter = "";
-
-var Letter = require("./letter.js");
+var Letter = require("./Letter.js");
+// this.getLetter = "";
 
 function Word(typed_l, hidden_team){
-// var Word = function(typed_l, hidden_l){
+
+	// var Word = function(typed_l, hidden_l){
 	this.thisWord = [];
+
 	this.typed = typed_l;
 	this.concealArray = hidden_team;
 
@@ -23,9 +24,8 @@ function Word(typed_l, hidden_team){
 
 	this.array_Word = function(team) {
 		this.conceal_word = team.split("");
-		};
+	};
 		// console.log(this.array_Word);
 }
-
 
 module.exports = Word;

@@ -1,12 +1,21 @@
 var inquirer = require("inquirer");
-var Word = require("./word.js");
+var Word = require("./Word.js");
 
-var newWord = new Word("a", "b");
-
-var count = 0;
-var typedLetter = "";
 var teamArray = [];
-var nfl_Teams = ["Arizona Cardinals", "Atlanta Falcons",
+
+function Main() {
+	var self = this;
+	this.count = 0;
+ 	this.a = "";
+ 	this.b = "";
+    
+ 	this.newArray = [];
+	this.count = 0;
+	this.j = 0;
+	this.typedLetter = "";
+	this.teamArray = [];
+
+	this.nfl_Teams = ["Arizona Cardinals", "Atlanta Falcons",
 				 "Baltimore Ravens", "Buffalo Bills",
 				 "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns",
 				 "Dallas Cowboys", "Denver Broncos", "Detroit Lions",
@@ -18,60 +27,51 @@ var nfl_Teams = ["Arizona Cardinals", "Atlanta Falcons",
 				 "Oakland Raiders", "Philadelphia Eagles", "Pittsburgh Steelers",
 				 "San Francisco 49ers", "Seattle Seahawks",
 				 "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Redskins"
-				 ];
-
-function start() {
-
-	count = 0;
-	var self = this;
+	];
     
-    concealed_Word();
-	
-	
-}
+	this.start = function() {
+		this.opportunities = 10;
+	    this.concealed_Word();
+	};
 
-var concealed_Word = function() {
-	var team = nfl_Teams[Math.floor(Math.random() * nfl_Teams.length)];
-	teamArray = team.split("");
-	console.log(JSON.stringify(teamArray));
-	askLetter();
-};
+	this.concealed_Word = function() {
+		this.team = this.nfl_Teams[Math.floor(Math.random() * this.nfl_Teams.length)];
+		teamArray = this.team.split("");
+		console.log(teamArray.join(' '));
+		for (var m = 0; m < teamArray.length; m++){
+			this.newArray.push('_');
+			// this.newArray.join(' ');
+		}
+		console.log(this.newArray.join(' '));
+	this.askLetter();
+	};
 
-var askLetter = function() {
 
-    // if statement to assure that there are 10 opportunities to have a wrong answer
-	if (count < 10) {
-		inquirer.prompt([
-			{
+	this.askLetter = function() {
+	    // if statement to assure that there are 10 opportunities to have a wrong answer
+		inquirer.prompt([				{
 				type: "input",
 				name: "letter",
 				message: "Guess a letter!"
 			}
 		]).then(function(answer) {
-			typedLetter = answer;
-			console.log("You typed: " + JSON.stringify(answer.letter));
+			console.log("Escribiste: " + answer.letter);
 
-			newWord.addLetter(answer.letter, "A");
-			// console.log(JSON.stringify(newWord.thisWord[3)])s;
+			console.log("letra en teamArray: " + teamArray[0]);
+			var letter = answer.letter;
+
+			this.newWord = new Word(letter, teamArray);
+			newWord.addLetter(letter, teamArray[0]);
+
 			var letterNew = JSON.stringify(newWord.thisWord, null, 2);
+			// console.log(personArray.join(', '));
+			// console.log("letra nueva: " + letterNew.join(' _ '));
 			console.log(newWord.thisWord[0].character);
+		}); // End .then
+	} // End askLetter
+} // End Main
 
-		});
-	}
-}
-
-
-
-
-
-// console.log(JSON.stringify(newWord.thisWord));
-
-// Define an array with words or phrases to be guessed by the user
-
-
-
-
-start();
+module.exports = Main;
 
 
 // Display the info about to how to play
