@@ -66,11 +66,17 @@ function Main() {
 			// console.log("letra nueva: " + letterNew.join(' _ '));
 			console.log(newWord.thisWord[0].character);
 			console.log("TA: " + teamArray);
+			
 			teamArray.forEach(function(letArray){
 				newWord.addLetter(letter, letArray)
 				
 			});
-			console.log(newWord.thisWord);
+			var wordText = '';
+			for (var i = 0; i<newWord.thisWord.length; i++ ){
+				wordText = wordText + ' ' + newWord.thisWord[i].character;
+				// console.log(newWord.thisWord[i].character);
+			};
+			console.log(wordText);
 		}); // End .then
 	} // End askLetter
 } // End Main

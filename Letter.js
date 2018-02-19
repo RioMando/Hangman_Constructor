@@ -19,11 +19,5 @@ var Letter = function(t_char, u_char) {
 	
 }
 
-// var newLetterDisplay = new LetterDisplay("A", "A");
-// newLetterDisplay.compare();
-// newLetterDisplay.returnChar();
-
-// console.log(" hello : " + char);
-
 module.exports = Letter;
 
